@@ -34,6 +34,7 @@ installApps()
     read -rp "NGinX Proxy Manager (y/n): " NPM
     read -rp "Navidrome (y/n): " NAVID
     read -rp "Portainer-CE (y/n): " PTAIN
+    read -rp "Is it External Server (y/n): " EXTS
 
     if [[ "$PTAIN" == [yY] ]]; then
         echo ""
@@ -52,6 +53,14 @@ installApps()
                 *) echo "Invalid selection, please try again..." ;;
             esac
         done
+    fi
+    
+    if [[ "$EXTS" == [yY] ]]; then
+        ngxm="https://raw.githubusercontent.com/abutaleb77/docker_installs/main/docker_compose.nginx_proxy_manager_external.yml"
+    fi
+    
+    if [[ "$EXTS" == [nN] ]]; then
+        ngxm="https://raw.githubusercontent.com/abutaleb77/docker_installs/main/docker_compose.nginx_proxy_manager_internal.yml"
     fi
     
     startInstall
@@ -280,7 +289,7 @@ startInstall()
         mkdir -p docker/nginx-proxy-manager
         cd docker/nginx-proxy-manager
 
-        curl https://gitlab.com/bmcgonag/docker_installs/-/raw/main/docker_compose.nginx_proxy_manager.yml -o docker-compose.yml >> ~/docker-script-install.log 2>&1
+        curl "$ngxm" -o docker-compose.yml >> ~/docker-script-install.log 2>&1
 
         echo "    2. Running the docker-compose.yml to install and start NGinX Proxy Manager"
         echo ""
