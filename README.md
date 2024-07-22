@@ -6,7 +6,7 @@ I got tired of running individual commands all the time, so I created some scrip
 
 ## Using this script
 
-1. Clone the repo ( `git clone https://github.com/pro-777/docker_installs.git` ), or copy / paste the code from the `install_docker_nproxyman.sh` file into a file on your server. 
+1. Clone the repo ( `git clone https://github.com/abutaleb77/docker_installs.git` ), or copy / paste the code from the `install_docker_nproxyman.sh` file into a file on your server. 
 2. Change the permissions of the .sh file to make it executable with.
 
 `chmod +x <your-new-file>.sh`
@@ -45,10 +45,9 @@ Before prompting to install Docker or Docker-Compose, I do try to see if you alr
 2. attempted to add the install of Curl, WGet, and Git in the script for those who may not already have them.
 
 ## Future Work
-- [ ] Make it work for Raspberry Pi
 - [X] Make it work for Arch
 - [ ] Make it work for OpenSuse
-- [ ] Maybe add a few other default containers to pull down and start running
+- [ ] Add a few other default containers to pull down and start running
 - [ ] Prompt for Credentials to use in NGinX Proxy Manager db settings vs. using the defaults.
 
 ## Contributing
